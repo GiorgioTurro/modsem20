@@ -1,0 +1,1117 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/turro/ontologies/2021/0/untitled-ontology-15#"
+     xml:base="http://www.semanticweb.org/turro/ontologies/2021/0/untitled-ontology-15"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA">
+        <terms:creator>Turro Giorgio Enrico</terms:creator>
+        <terms:creator>Vincenzi Stefano</terms:creator>
+        <terms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-02-15T09:00:00</terms:date>
+        <terms:description xml:lang="it">Descrizione delle caratteristiche dei MOBA e delle relazioni tra le sue Entità</terms:description>
+        <terms:title xml:lang="en">Multiplayer Online Battle Arena (MOBA)</terms:title>
+        <vann:preferredNamespacePrefix>moba</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>???</vann:preferredNamespaceUri>
+        <rdfs:label xml:lang="en">MOBA</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/date"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/belongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/belongsTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Character"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#NPC"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Team"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/notBelongsTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/capabilityOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/capabilityOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/equips -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/equips">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/isEquippedBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Character"/>
+        <rdfs:range rdf:resource="http://purl.org/vocab/vann/Item"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/hasMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/hasMember"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/hasRole -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/hasRole"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/hasType -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/hasType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/isCapableOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/isCapableOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/isComposedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/isComposedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/isPartOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Map"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Jungle"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Structure"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/Lane"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/isCreatedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/isCreatedFrom">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/isCreatedFrom"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/isCreatedFrom"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/isEquippedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/isEquippedBy"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/isPartOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Jungle"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Structure"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/Lane"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Map"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/notBelongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/notBelongsTo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Character"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#NPC"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Team"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/plays -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/plays">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/sameTeam -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/sameTeam">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/additionalArmor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/additionalArmor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/additionalHealth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/additionalHealth"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/additionalMagicResistance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/additionalMagicResistance"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/hasLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/hasLevel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/hasPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/hasPrice"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/lore -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/lore"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/magicDamage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/magicDamage"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/physicalDamage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/physicalDamage"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/range -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/range"/>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/releaseDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/releaseDate"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocab/vann/Ability -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Ability">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/capabilityOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Character"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">Abilità che un Character può avere</rdfs:comment>
+        <rdfs:label xml:lang="en">Ability</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Ability_Haste -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Ability_Haste">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Magic"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che diminuisce il cooldown delle abilità</rdfs:comment>
+        <rdfs:label xml:lang="en">Ability_Haste</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Ability_Power -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Ability_Power">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Magic"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta il danno magico</rdfs:comment>
+        <rdfs:label xml:lang="en">Ability_Power</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Armor -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Armor">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Defense"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta la difesa fisica</rdfs:comment>
+        <rdfs:label xml:lang="en">Armor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Attack -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Attack">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Item_Type"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumentano le statistiche dell&apos;attacco</rdfs:comment>
+        <rdfs:label xml:lang="en">Attack</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Attack_Speed -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Attack_Speed">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Attack"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta la velocità di attacco</rdfs:comment>
+        <rdfs:label xml:lang="en">Attack_Speed</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Boots -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Boots">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Movement"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumentano il movimento</rdfs:comment>
+        <rdfs:label xml:lang="en">Boots</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Champion -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Champion">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Character"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Consumable -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Consumable">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Tool"/>
+        <rdfs:comment xml:lang="it">Oggetti dall&apos;uso singolo</rdfs:comment>
+        <rdfs:label xml:lang="en">Consumable</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Critical_Strike -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Critical_Strike">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Attack"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta l&apos;attacco critico</rdfs:comment>
+        <rdfs:label xml:lang="en">Critical_Strike</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Damage -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Damage">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Attack"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta l&apos;attacco</rdfs:comment>
+        <rdfs:label xml:lang="en">Damage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Defense -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Defense">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Item_Type"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta le statistiche di difesa</rdfs:comment>
+        <rdfs:label xml:lang="en">Defense</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Gold_Income -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Gold_Income">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Tool"/>
+        <rdfs:comment xml:lang="it">Oggetti che aumentano il guadagno di oro</rdfs:comment>
+        <rdfs:label xml:lang="en">Gold_Income</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Healer -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Healer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Support"/>
+        <rdfs:comment xml:lang="it">Tipologia di Support Role che si specializza nel curare gli alleati</rdfs:comment>
+        <rdfs:label xml:lang="en">Healer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Health -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Health">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Defense"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta la salute massima</rdfs:comment>
+        <rdfs:label xml:lang="en">Health</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Health_Regeneration -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Health_Regeneration">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Defense"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta la rigenerazione della salute</rdfs:comment>
+        <rdfs:label xml:lang="en">Health_Regeneration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Item -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Item">
+        <rdfs:comment xml:lang="it">Oggetti acquistabili in partita</rdfs:comment>
+        <rdfs:label xml:lang="en">Item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Item_Type -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Item_Type">
+        <rdfs:comment xml:lang="it">Tipo al quale un oggetto può appartenere</rdfs:comment>
+        <rdfs:label xml:lang="en">Item_Type</rdfs:label>
+        <rdfs:label xml:lang="it">Tipo_Oggetto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Jungling -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Jungling">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Starter_Item"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti da usare a inizio match per i giocatori posizionati in giungla</rdfs:comment>
+        <rdfs:label xml:lang="en">Jungling</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Laning -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Laning">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Starter_Item"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti da usare a inizio match per i giocatori posizionati in lane</rdfs:comment>
+        <rdfs:label xml:lang="en">Laning</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Lethality -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Lethality">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Attack"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta la lethality</rdfs:comment>
+        <rdfs:label xml:lang="en">Lethality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Life_Stealing -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Life_Stealing">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Attack"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta il ruba vita</rdfs:comment>
+        <rdfs:label xml:lang="en">Life_Stealing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Magic -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Magic">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Item_Type"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumentano le statistiche magiche</rdfs:comment>
+        <rdfs:label xml:lang="en">Magic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Magic_Resistance -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Magic_Resistance">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Defense"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta la difesa magica</rdfs:comment>
+        <rdfs:label xml:lang="en">Magic_resinstance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Mana -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Mana">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Magic"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta il Mana massimo</rdfs:comment>
+        <rdfs:label xml:lang="en">Mana</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Mana_Regeneration -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Mana_Regeneration">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Magic"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumenta la rigenerazione del mana</rdfs:comment>
+        <rdfs:label xml:lang="en">Mana_Regeneration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Movement -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Movement">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Item_Type"/>
+        <rdfs:comment xml:lang="it">Oggetto che aumentano il movimento</rdfs:comment>
+        <rdfs:label xml:lang="en">Movement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Other_Movement -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Other_Movement">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Movement"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti che aumentano il movimento che non sono Stivali</rdfs:comment>
+        <rdfs:label xml:lang="en">Other_Movement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Starter_Item -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Starter_Item">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Item_Type"/>
+        <rdfs:comment xml:lang="it">Tipologia di oggetti da usare a inizio match</rdfs:comment>
+        <rdfs:label xml:lang="en">Starter_Item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Tool -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Tool">
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Item_Type"/>
+        <rdfs:comment xml:lang="it">Oggetti di utilità varia</rdfs:comment>
+        <rdfs:label xml:lang="en">Tool</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Vision&amp;Trinket -->
+
+    <owl:Class rdf:about="http://purl.org/vocab/vann/Vision&amp;Trinket">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.org/vocab/vann/Control_Ward"/>
+                    <rdf:Description rdf:about="http://purl.org/vocab/vann/Farsight_Alteration"/>
+                    <rdf:Description rdf:about="http://purl.org/vocab/vann/Stealth_Ward"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.org/vocab/vann/Consumable"/>
+        <rdfs:comment xml:lang="it">Oggetti che aumentano la visione delle zone non visibili</rdfs:comment>
+        <rdfs:label xml:lang="en">Vision&amp;Trinket</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Assassin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Assassin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:comment xml:lang="it">Tipologia di Ruolo.
+Tipicamente gli assassini hanno un forte attacco e poca salute/difesa</rdfs:comment>
+        <rdfs:label xml:lang="en">Assassin</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Bruiser -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Bruiser">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Fighter"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo.
+Combattenti</rdfs:comment>
+        <rdfs:label xml:lang="en">Bruiser</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Character -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Character">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/entity/Q1062345"/>
+        <rdfs:comment xml:lang="it">Possibili personaggi selezionabili in un match</rdfs:comment>
+        <rdfs:label xml:lang="en">Character</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Fighter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Fighter">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Warrior"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo.
+Combattenti</rdfs:comment>
+        <rdfs:label xml:lang="en">Fighter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Guardian -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Guardian">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Tank"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo.
+Possiedono tanta salute/difesa</rdfs:comment>
+        <rdfs:label xml:lang="en">Guardian</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Hunter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Hunter">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Marksman"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:label xml:lang="en">Hunter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Jungle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Jungle">
+        <rdfs:comment xml:lang="it">Porzione di mappa in cui sono presenti mostri neutrali</rdfs:comment>
+        <rdfs:label xml:lang="en">Jungle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Mage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Mage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo.
+I loro attacchi si basano sulla magia (magic damage, ability power,...)</rdfs:comment>
+        <rdfs:label xml:lang="en">Mage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Map -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Map">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/isComposedBy"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Jungle"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/isComposedBy"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Structure"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/isComposedBy"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/Lane"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">Mappa in cui si svolge un match</rdfs:comment>
+        <rdfs:label xml:lang="en">Map</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Marksman -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Marksman">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo.
+I loro attacchi sono principalmente dalla lunga distanza</rdfs:comment>
+        <rdfs:label xml:lang="en">Marksman</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Match -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Match">
+        <rdfs:comment xml:lang="it">Una singola partita</rdfs:comment>
+        <rdfs:label xml:lang="en">Match</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Minion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Minion">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#NPC"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/belongsTo"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Team"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#NPC"/>
+        <rdfs:comment xml:lang="it">Personaggi non giocabili, possono essere alleati o avversari.</rdfs:comment>
+        <rdfs:label xml:lang="en">Minion</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Moba -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Moba">
+        <rdfs:comment xml:lang="it">Direi che questa si può cancellare</rdfs:comment>
+        <rdfs:label xml:lang="en">Moba</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Monster -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Monster">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#NPC"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/notBelongsTo"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Team"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#NPC"/>
+        <rdfs:comment xml:lang="it">Personaggi neutrali non giocabili. Solitamente presenti nella porzione di mappa definita come giungla</rdfs:comment>
+        <rdfs:label xml:lang="en">Monster</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#NPC -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#NPC">
+        <rdfs:comment xml:lang="it">Personaggi non giocabili, possono essere alleati, avversari o neutrali</rdfs:comment>
+        <rdfs:label xml:lang="en">Non_Player_Character</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Player -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Player">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/plays"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Character"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">Utente che gioca</rdfs:comment>
+        <rdfs:label xml:lang="en">Player</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Role -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Role">
+        <rdfs:comment xml:lang="it">Ruolo di un Character</rdfs:comment>
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Structure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Structure">
+        <rdfs:comment xml:lang="it">Strutture presenti nella mappa, possono essere alleate, avversarie o neutrali</rdfs:comment>
+        <rdfs:label xml:lang="en">Structure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Support -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Support">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo specializzata nel dare supporto ad altri giocatori. Tipicamente il carry</rdfs:comment>
+        <rdfs:label xml:lang="en">Support</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Tank -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Tank">
+        <owl:equivalentClass rdf:resource="https://www.wikidata.org/entity/Q1964626"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo.
+Possiedono tanta salute/difesa</rdfs:comment>
+        <rdfs:label xml:lang="en">Tank</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Team -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Team">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA/hasMember"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Player"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="it">Composizione di più giocatori che partecipano a un match.
+Tipicamente un match presenta due Team</rdfs:comment>
+        <rdfs:label xml:lang="en">Team</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Team_Base -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Team_Base">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Structure"/>
+        <rdfs:comment xml:lang="it">Struttura presente una per ogni team.
+Tipicamente lo spawn dei giocatori avviene in quel punto.
+Lì è possibile acquistare oggetti e curarsi rapidamente.</rdfs:comment>
+        <rdfs:label xml:lang="en">Team_Base</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Warrior -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Warrior">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo.
+Combattenti</rdfs:comment>
+        <rdfs:label xml:lang="en">Warrior</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA/Lane -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA/Lane">
+        <rdfs:comment xml:lang="it">Pista facente perte di una mappa. In questa regione solitamente circolano i minion</rdfs:comment>
+        <rdfs:label xml:lang="en">Lane</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/entity/Q1062345 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/entity/Q1062345">
+        <rdfs:comment xml:lang="en">Wikidata Player Character</rdfs:comment>
+        <rdfs:label xml:lang="en">Q1062345_player_character</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/entity/Q1964626 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/entity/Q1964626">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Role"/>
+        <rdfs:comment xml:lang="en">Wikidata Tank</rdfs:comment>
+        <rdfs:label xml:lang="en">Q1964626_tank</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/entity/Q466466 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/entity/Q466466">
+        <rdfs:comment xml:lang="en">Wikidata NPC</rdfs:comment>
+        <rdfs:label xml:lang="en">Q466466_non-player_character</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocab/vann/Control_Ward -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/vocab/vann/Control_Ward">
+        <rdfs:comment xml:lang="en">League of Legends Vision Item</rdfs:comment>
+        <rdfs:label xml:lang="en">Control_Ward</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Farsight_Alteration -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/vocab/vann/Farsight_Alteration">
+        <rdfs:comment xml:lang="en">League of Legends&apos; Vision Item</rdfs:comment>
+        <rdfs:label xml:lang="en">Farsight_Alteration</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/vocab/vann/Stealth_Ward -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/vocab/vann/Stealth_Ward">
+        <rdfs:comment xml:lang="en">League of Legends&apos; Vision Item</rdfs:comment>
+        <rdfs:label xml:lang="en">Stealth_Ward</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Arena_Of_Valor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Arena_Of_Valor">
+        <rdf:type rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Moba"/>
+        <rdfs:comment xml:lang="it">MOBA classico della Tencent Games</rdfs:comment>
+        <rdfs:label xml:lang="en">Arena_Of_Valor</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Ashe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Ashe">
+        <rdfs:comment xml:lang="en">League of Legends&apos; Marksman</rdfs:comment>
+        <rdfs:label xml:lang="en">Ashe</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Braum -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Braum">
+        <rdfs:comment xml:lang="en">League of Legends&apos; Support</rdfs:comment>
+        <rdfs:label xml:lang="en">Braum</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Darius -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Darius">
+        <rdfs:comment xml:lang="en">League of legends&apos; Tank</rdfs:comment>
+        <rdfs:label xml:lang="en">Darius</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Dota_2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Dota_2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Moba"/>
+        <rdfs:comment xml:lang="en">MOBA Game</rdfs:comment>
+        <rdfs:label xml:lang="en">Dota_2</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Garen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Garen">
+        <rdfs:comment xml:lang="en">League of Legends&apos; Tank</rdfs:comment>
+        <rdfs:label xml:lang="en">Garen</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Heroes_Of_The_Storm -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Heroes_Of_The_Storm">
+        <rdf:type rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Moba"/>
+        <rdfs:comment xml:lang="en">MOBA Game</rdfs:comment>
+        <rdfs:label xml:lang="en">Heroes_Of_The_Storm</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Jhin -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Jhin">
+        <rdfs:comment xml:lang="en">League of Legends&apos; Marksman</rdfs:comment>
+        <rdfs:label xml:lang="en">Jhin</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#League_Of_Legends -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#League_Of_Legends">
+        <rdf:type rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Moba"/>
+        <rdfs:comment xml:lang="it">MOBA classico della Riot Games (Tencent Games)</rdfs:comment>
+        <rdfs:label xml:lang="en">League_Of_Legends</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Lux -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Lux">
+        <rdf:type rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Mage"/>
+        <rdfs:comment xml:lang="en">League of Legends&apos; Mage</rdfs:comment>
+        <rdfs:label xml:lang="en">Lux</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Paladins -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Paladins">
+        <rdf:type rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Moba"/>
+        <rdfs:comment xml:lang="en">Moba Game</rdfs:comment>
+        <rdfs:label xml:lang="en">Paladins</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Sett -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Sett">
+        <rdf:type rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Fighter"/>
+        <rdfs:comment xml:lang="en">League of Legend&apos;s fighter</rdfs:comment>
+        <rdfs:label xml:lang="en">Sett</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Smite -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Smite">
+        <rdf:type rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Moba"/>
+        <rdfs:comment xml:lang="en">MOBA Game</rdfs:comment>
+        <rdfs:label xml:lang="en">Smite</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Zed -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Zed">
+        <rdf:type rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Assassin"/>
+        <rdfs:comment xml:lang="en">League of Legends&apos; Assassin</rdfs:comment>
+        <rdfs:label xml:lang="en">Zed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/turro/ontologies/MOBA#Kha&apos;zix -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/turro/ontologies/MOBA#Kha&apos;zix">
+        <rdf:type rdf:resource="http://www.semanticweb.org/turro/ontologies/MOBA#Assassin"/>
+        <rdfs:comment xml:lang="en">League of Legends&apos; Assassin</rdfs:comment>
+        <rdfs:label xml:lang="en">Kha&apos;zix</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

@@ -6,8 +6,66 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
      xmlns:untitled-ontology-5="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5"/>
+    <owl:Ontology rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5">
+        <terms:creator xml:lang="en">Turro Giorgio Enrico</terms:creator>
+        <terms:creator xml:lang="en">Vincenzi Stefano</terms:creator>
+        <terms:date xml:lang="en">2021-02-15T09:00:00</terms:date>
+        <terms:description xml:lang="it">Descrizione delle caratteristiche dei MOBA e delle relazioni tra i suoi elementi</terms:description>
+        <terms:title xml:lang="en">Multiplayer Online Battle Arena (MOBA)</terms:title>
+        <vann:preferredNamespacePrefix>moba</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>???</vann:preferredNamespaceUri>
+        <rdfs:label xml:lang="en">MOBA</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/date"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
     
 
 
@@ -26,8 +84,12 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#chooseAram">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#chooseMatch"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Partita"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Aram"/>
+        <rdfs:comment xml:lang="it">Un Player sceglie una tipologia specifica di match da giocare, un Aram.</rdfs:comment>
+        <rdfs:label xml:lang="en">chooseAram</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -39,6 +101,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
+        <rdfs:comment xml:lang="it">Un Player sceglie un Champion con cui giocare</rdfs:comment>
+        <rdfs:label xml:lang="en">chooseChampion</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -47,6 +111,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#chooseClassic">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#chooseMatch"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#chooseMatch"/>
@@ -55,6 +121,8 @@
             </owl:Restriction>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Classica"/>
+        <rdfs:comment xml:lang="it">Un Player sceglie una tipologia specifica di match da giocare, un Classic.</rdfs:comment>
+        <rdfs:label xml:lang="en">chooseClassic</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -62,8 +130,12 @@
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#chooseMatch -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#chooseMatch">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Partita"/>
+        <rdfs:comment xml:lang="it">Un Player sceglie un match da giocare</rdfs:comment>
+        <rdfs:label xml:lang="en">chooseMatch</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -78,6 +150,8 @@
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#jungle"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#lane"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#spawn"/>
+        <rdfs:comment xml:lang="it">Una Map è composta da più parti, ogni parte in numero variabile.</rdfs:comment>
+        <rdfs:label xml:lang="en">composedBy</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -86,8 +160,13 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#hasAbility">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#isAnAbilityOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Abilità"/>
+        <rdfs:comment xml:lang="it">Un Champion ha una o più Ability</rdfs:comment>
+        <rdfs:label xml:lang="en">hasAbility</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -95,9 +174,13 @@
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#hasPng -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#hasPng">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#jungle"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#lane"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Png"/>
+        <rdfs:comment xml:lang="it">Un Place può essere presidiata/percorsa da Png</rdfs:comment>
+        <rdfs:label xml:lang="en">hasPng</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -106,9 +189,10 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#hasRole">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
+        <rdfs:comment xml:lang="it">Un Champion può avere uno o più ruoli</rdfs:comment>
+        <rdfs:label xml:lang="en">hasRole</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -116,8 +200,12 @@
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#hasStructure -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#hasStructure">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#lane"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure"/>
+        <rdfs:comment xml:lang="it">Una Lane può avere una o più Structure</rdfs:comment>
+        <rdfs:label xml:lang="en">hasStructure</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -130,6 +218,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
+        <rdfs:comment xml:lang="it">Un Player può avere uno o più compagni di squadra</rdfs:comment>
+        <rdfs:label xml:lang="en">hasTeammate</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -141,6 +231,8 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#burst_damage"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#sustain_damage"/>
+        <rdfs:comment xml:lang="it">Un Champion può avere un ruolo di DamageDealer</rdfs:comment>
+        <rdfs:label xml:lang="en">isADamageDealer</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -152,6 +244,8 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#bruiser"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#tank"/>
+        <rdfs:comment xml:lang="it">Un Champion può avere un ruolo di FrontLine</rdfs:comment>
+        <rdfs:label xml:lang="en">isAFrontLine</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -165,6 +259,8 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#healer"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#support"/>
+        <rdfs:comment xml:lang="it">Un Champion può avere un ruolo di Sustain Team</rdfs:comment>
+        <rdfs:label xml:lang="en">isASustainTeam</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -172,11 +268,15 @@
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#isAnAbilityOf -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#isAnAbilityOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#base"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#eroica"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#passive"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
+        <rdfs:comment xml:lang="it">Un Ability è in possesso di un Champion</rdfs:comment>
+        <rdfs:label xml:lang="en">isAnAbilityOf</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -184,10 +284,13 @@
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#isInTheTeam -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#isInTheTeam">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team"/>
+        <rdfs:comment xml:lang="it">Un Player può appartenere a un Team</rdfs:comment>
+        <rdfs:label xml:lang="en">isInTheTeam</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -196,8 +299,12 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#isUsedBy">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#useObject"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Oggetto"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
+        <rdfs:comment xml:lang="it">Un Champion può usare (Consumare o Equipaggiarsi) di un Item</rdfs:comment>
+        <rdfs:label xml:lang="en">isUsedBy</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -209,6 +316,8 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
+        <rdfs:comment xml:lang="it">Un Champion può essere dello stesso ruolo di un altro Champion</rdfs:comment>
+        <rdfs:label xml:lang="en">sameRole</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -216,8 +325,40 @@
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#useObject -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#useObject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Oggetto"/>
+        <rdfs:comment xml:lang="it">Un Champion usa un Item</rdfs:comment>
+        <rdfs:label xml:lang="en">useObject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/hasRoleDamageDealer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/hasRoleDamageDealer">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#burst_damage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#sustain_damage"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#hasRole"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#isADamageDealer"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/hasRoleFrontLine -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/hasRoleFrontLine">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#bruiser"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#tank"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#hasRole"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#isAFrontLine"/>
+        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -237,7 +378,10 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#attackIs">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Character"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="it">Valore numerico positivo relativo all&apos;attacco di un Character</rdfs:comment>
+        <rdfs:label xml:lang="en">attackIs</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -247,6 +391,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#consumabile">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Oggetto"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="it">Identifica se un Item è consumabile (in alternativa è un Item equipaggiabile)</rdfs:comment>
+        <rdfs:label xml:lang="en">consumable</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -255,7 +401,10 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#defenseIs">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Character"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="it">Valore numerico positivo relativo alla difesa di un Character</rdfs:comment>
+        <rdfs:label xml:lang="en">defenceIs</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -265,6 +414,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#hasRank">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="it">Identifica il Rank di un giocatore</rdfs:comment>
+        <rdfs:label xml:lang="en">hasRank</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -291,6 +442,8 @@
                 </owl:oneOf>
             </rdfs:Datatype>
         </rdfs:range>
+        <rdfs:comment xml:lang="it">Blue o Red se un Minion o una Struttura è Blue o Red</rdfs:comment>
+        <rdfs:label xml:lang="en">hasTeam</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -300,6 +453,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#healthIs">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="it">Valore numerico positivo relativo alla vita di un Character</rdfs:comment>
+        <rdfs:label xml:lang="en">healthIs</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -309,6 +464,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#improveHealth">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Oggetto"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="it">Valore numerico positivo relativo all&apos;aumento di vita di un Item</rdfs:comment>
+        <rdfs:label xml:lang="en">improveHealth</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -318,6 +475,8 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#manaIs">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="it">Valore numerico positivo relativo al mana di un Character</rdfs:comment>
+        <rdfs:label xml:lang="en">manaIs</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -343,6 +502,8 @@
                 </owl:oneOf>
             </rdfs:Datatype>
         </rdfs:range>
+        <rdfs:comment xml:lang="it">Identifica il tipo di attacco di un Champion: Melee o Ranged</rdfs:comment>
+        <rdfs:label xml:lang="en">typeOfAttack</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -361,11 +522,21 @@
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Abilità -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Abilità">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Character"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Oggetto"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Partita"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
         <owl:disjointUnionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#base"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#eroica"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#passive"/>
         </owl:disjointUnionOf>
+        <rdfs:comment xml:lang="it">Abilità che un Champion può possedere</rdfs:comment>
+        <rdfs:label xml:lang="en">Ability</rdfs:label>
     </owl:Class>
     
 
@@ -375,6 +546,8 @@
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Aram">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Partita"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Classica"/>
+        <rdfs:comment xml:lang="it">Modalità di Match, solitamente più breve e con una mappa ridotta.</rdfs:comment>
+        <rdfs:label xml:lang="en">Aram</rdfs:label>
     </owl:Class>
     
 
@@ -409,6 +582,8 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Character"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Png"/>
+        <rdfs:comment xml:lang="it">Personaggio selezionabile di un MOBA e controllato da un Player.</rdfs:comment>
+        <rdfs:label xml:lang="en">Champion</rdfs:label>
     </owl:Class>
     
 
@@ -416,10 +591,19 @@
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Character -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Character">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Oggetto"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Partita"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
         <owl:disjointUnionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Champion"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Png"/>
         </owl:disjointUnionOf>
+        <rdfs:comment xml:lang="it">Personaggio di un MOBA</rdfs:comment>
+        <rdfs:label xml:lang="en">Character</rdfs:label>
     </owl:Class>
     
 
@@ -428,6 +612,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Classica">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Partita"/>
+        <rdfs:comment xml:lang="it">Una partita Classica. La mappa è quella standard e le dinamiche di gioco sono più ampie e complesse.</rdfs:comment>
+        <rdfs:label xml:lang="en">Classic</rdfs:label>
     </owl:Class>
     
 
@@ -438,6 +624,8 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Tower"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#spawn"/>
+        <rdfs:comment xml:lang="it">Struttura principale. Ogni squadra ha un Nexus posizionato nelle rispettive basi. Se un team distrugge il Nexus avversario ha vinto la partita.</rdfs:comment>
+        <rdfs:label xml:lang="en">Core</rdfs:label>
     </owl:Class>
     
 
@@ -447,6 +635,8 @@
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Minion">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Png"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Monster"/>
+        <rdfs:comment xml:lang="it">Personaggi alleati o nemici. Percorrono le lane e attaccano i nemici. Solitamente hanno una vita e un attacco basso.</rdfs:comment>
+        <rdfs:label xml:lang="en">Minion</rdfs:label>
     </owl:Class>
     
 
@@ -455,13 +645,24 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Monster">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Png"/>
+        <rdfs:comment xml:lang="it">Personaggi neutrali. Solitamente si trovano nella giungla e, una volta uccisi, danno esperienza e buff.</rdfs:comment>
+        <rdfs:label xml:lang="en">Monster</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Oggetto -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Oggetto"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Oggetto">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Partita"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
+        <rdfs:comment xml:lang="it">Oggetto del quale un Champion si può equipaggiare</rdfs:comment>
+        <rdfs:label xml:lang="en">Item</rdfs:label>
+    </owl:Class>
     
 
 
@@ -482,17 +683,31 @@
                 <owl:onClass rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Classica"/>
             </owl:Restriction>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
         <owl:disjointUnionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Aram"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Classica"/>
         </owl:disjointUnionOf>
+        <rdfs:comment xml:lang="it">Singola partita disputata tra due Team</rdfs:comment>
+        <rdfs:label xml:lang="en">Match</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Player">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
+        <rdfs:comment xml:lang="it">Giocatore che comanda un Champion</rdfs:comment>
+        <rdfs:label xml:lang="en">Player</rdfs:label>
+    </owl:Class>
     
 
 
@@ -504,32 +719,47 @@
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Minion"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Monster"/>
         </owl:disjointUnionOf>
-        <rdfs:comment>Png (Personaggio Non Giocante), tutti gli elementi del gioco che reagiscono secondo una certa logica alle azioni del giocatore</rdfs:comment>
+        <rdfs:comment xml:lang="it">Png (Personaggio Non Giocante), tutti gli elementi del gioco che reagiscono secondo una certa logica alle azioni del giocatore</rdfs:comment>
+        <rdfs:label xml:lang="en">Png</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
+        <rdfs:comment xml:lang="it">Ruolo al quale un Chamion può afferire</rdfs:comment>
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
         <owl:disjointUnionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Core"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Tower"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#spawn"/>
         </owl:disjointUnionOf>
+        <rdfs:comment xml:lang="it">Struttura all&apos;interno di una mappa</rdfs:comment>
+        <rdfs:label xml:lang="en">Structure</rdfs:label>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Team">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
+        <rdfs:comment xml:lang="it">Gruppo di più Player. Ogni Match vede due team che si scontrano.</rdfs:comment>
+        <rdfs:label xml:lang="en">Team</rdfs:label>
+    </owl:Class>
     
 
 
@@ -538,6 +768,8 @@
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Tower">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#spawn"/>
+        <rdfs:comment xml:lang="it">Struttura di difesa, ogni team ne possiede almeno una. Le torri hanno molta vita e attaccano chi è nel loro range di attacco.</rdfs:comment>
+        <rdfs:label xml:lang="en">Tower</rdfs:label>
     </owl:Class>
     
 
@@ -548,6 +780,8 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Abilità"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#eroica"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#passive"/>
+        <rdfs:comment xml:lang="it">Abilità base, solitamente un Champion ha più di un&apos;abilità base.</rdfs:comment>
+        <rdfs:label xml:lang="en">Base</rdfs:label>
     </owl:Class>
     
 
@@ -566,6 +800,8 @@
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#burst_damage">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#sustain_damage"/>
+        <rdfs:comment xml:lang="it">Tipo di ruolo, solitamente maghi. Tramite le abilità sono in grado di fare molto danno in poco tempo.</rdfs:comment>
+        <rdfs:label xml:lang="en">Burst_damage</rdfs:label>
     </owl:Class>
     
 
@@ -575,6 +811,8 @@
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#eroica">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Abilità"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#passive"/>
+        <rdfs:comment xml:lang="it">Abilità Eroica. Solitamente è un&apos;abilità potente e un Champion ne possiede solo una.</rdfs:comment>
+        <rdfs:label xml:lang="en">Eroic</rdfs:label>
     </owl:Class>
     
 
@@ -596,7 +834,11 @@
                 <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Monster"/>
             </owl:Restriction>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#lane"/>
+        <rdfs:comment xml:lang="it">Porzione di mappa.
+Nella giungla sono presenti solitamente mostri neutrali.</rdfs:comment>
+        <rdfs:label xml:lang="en">Jungle</rdfs:label>
     </owl:Class>
     
 
@@ -619,6 +861,10 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
+        <rdfs:comment xml:lang="it">Settore di mappa per lo più lineare come indica il nome.
+Le lane sono percorse solitamente dai Minion.</rdfs:comment>
+        <rdfs:label xml:lang="en">Lane</rdfs:label>
     </owl:Class>
     
 
@@ -656,6 +902,10 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place"/>
+        <rdfs:comment xml:lang="it">La mappa in cui si disputa un match.
+Può essere composto da vari elementi</rdfs:comment>
+        <rdfs:label xml:lang="en">Map</rdfs:label>
     </owl:Class>
     
 
@@ -664,6 +914,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#passive">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Abilità"/>
+        <rdfs:comment xml:lang="it">Abilità passiva, solitamente un Champion ne ha solo una ed è un&apos;abilità che non si può controllare.</rdfs:comment>
+        <rdfs:label xml:lang="en">Passive</rdfs:label>
     </owl:Class>
     
 
@@ -672,6 +924,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#spawn">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Structure"/>
+        <rdfs:comment xml:lang="it">Luogo in cui un Champion appare all&apos;inizio del match, se ucciso o se ha effettuato un ritorno in base.</rdfs:comment>
+        <rdfs:label xml:lang="en">Spawn</rdfs:label>
     </owl:Class>
     
 
@@ -688,6 +942,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#sustain_damage">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo, questi Champion hanno un elevato attacco e si focalizzano sugli attacchi base.</rdfs:comment>
+        <rdfs:label xml:lang="en">Sustain_damage</rdfs:label>
     </owl:Class>
     
 
@@ -696,6 +952,51 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#tank">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Place">
+        <rdfs:comment xml:lang="it">Elemento di tipo geografico</rdfs:comment>
+        <rdfs:label xml:lang="en">Place</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Vision&amp;Trinket -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Vision&amp;Trinket">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Control_Ward"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Farsight_Alteration"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Stealth_Ward"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Oggetto"/>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/entity/Q1062345 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/entity/Q1062345">
+        <rdfs:comment xml:lang="en">Wikidata Player</rdfs:comment>
+        <rdfs:label xml:lang="en">Player_Q1062345</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.wikidata.org/entity/Q1964626 -->
+
+    <owl:Class rdf:about="https://www.wikidata.org/entity/Q1964626">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Role"/>
+        <rdfs:comment xml:lang="en">Wikidata Tank</rdfs:comment>
+        <rdfs:label xml:lang="en">Tank_Q1964626</rdfs:label>
     </owl:Class>
     
 
@@ -922,6 +1223,51 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#base"/>
         <isAnAbilityOf rdf:resource="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#Ashe"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Control_Ward -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Control_Ward"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Farsight_Alteration -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Farsight_Alteration"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Stealth_Ward -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5/Stealth_Ward"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#bruiser">
+        <rdfs:label xml:lang="en">Bruiser</rdfs:label>
+        <rdfs:comment xml:lang="it">Tipologia di Ruolo. Combattenti con un livello discreto sia di vita sia di attacco.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#healer">
+        <rdfs:comment xml:lang="it">Tipologia di ruolo, questi Champion possiedono abilità curative a supporto della squadra.</rdfs:comment>
+        <rdfs:label xml:lang="en">Healer</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#support">
+        <rdfs:label xml:lang="en">Support</rdfs:label>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo, questi Champion sono di supporto alla squadra, possono esserlo sia in fase di difesa che di attaco.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#tank">
+        <rdfs:label xml:lang="en">Tank</rdfs:label>
+        <rdfs:comment xml:lang="it">Tipologia di ruolo, questi Champion hanno molta vita e/o difesa, peccano di danno fisico/magico.</rdfs:comment>
+    </rdf:Description>
     
 
 

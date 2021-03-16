@@ -1,0 +1,102 @@
+body, button, input{
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fbb324;
+}
+
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+html{
+  margin: 0px;
+  padding: 0px;
+}
+
+h1{
+  font-weight: 800;
+  font-size: 74px;
+  text-align: center;
+  color: #312004;
+}
+
+h3{
+  font-weight: 800;
+  font-size: 34px;
+  font-style: italic;
+  text-align: center;
+  color: #312004;
+}
+
+.input-group{
+  width: 300px;
+  margin: auto;
+}
+
+input{
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0%;
+  width: 300px;
+  font-weight: 200px;
+  color: #312004;
+}
+
+input:focus{
+  border: none;
+  border-bottom: 2px solid black;
+  box-shadow: none;
+  color: #312004;
+}
+
+input:enabled:focus{
+  border: none;
+  border-bottom: 2px solid black;
+  box-shadow: none;
+  color: #312004;
+}
+
+.p-grid{
+  width: 100%;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+.p-col-6{
+  align-self: center;
+  height: 100%;
+}
+
+img{
+  width: 100%;
+  height: -webkit-fill-available;
+}
+
+
+.button-group-div{
+  display: flex;
+}
+
+.button-group{
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  margin: 20px;
+}
+
+.p-button-secondary{
+  background-color: #222;
+}
+
+.reg-button{
+  background-color: white;
+  color: #222;
+}
+
+.reg-button:hover{
+  background-color: #222 !important;
+}
+
+a{
+  text-decoration: none;
+}

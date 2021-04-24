@@ -160,6 +160,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vincenturro/moba#hasAbility">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#isAnAbilityOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/vincenturro/moba#Champion"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/vincenturro/moba#Abilità"/>
@@ -238,7 +239,14 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vincenturro/moba#isADamageDealer">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#hasRole"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vincenturro/moba#Champion"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#Champion"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#Damage_dealer"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -290,6 +298,7 @@
     <!-- http://www.semanticweb.org/vincenturro/moba#isAnAbilityOf -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vincenturro/moba#isAnAbilityOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -309,6 +318,7 @@
     <!-- http://www.semanticweb.org/vincenturro/moba#isInTheTeam -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vincenturro/moba#isInTheTeam">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#teamComposedBy"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/vincenturro/moba#Player"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/vincenturro/moba#Team"/>
@@ -354,6 +364,48 @@
     
 
 
+    <!-- http://www.semanticweb.org/vincenturro/moba#teamComposedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vincenturro/moba#teamComposedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/vincenturro/moba#Team"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/vincenturro/moba#Player"/>
+        <rdfs:comment xml:lang="it">Composizione del team</rdfs:comment>
+        <rdfs:label xml:lang="en">teamComposedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/vincenturro/moba#teamPlaysMatch -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vincenturro/moba#teamPlaysMatch">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/vincenturro/moba#Team"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/vincenturro/moba#Partita"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#teamComposedBy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#chooseMatch"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Match giocati da un team</rdfs:comment>
+        <rdfs:label xml:lang="en">teamPlaysMatch</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/vincenturro/moba#teamPreferredChampion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vincenturro/moba#teamPreferredChampion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/vincenturro/moba#Team"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/vincenturro/moba#Champion"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#teamComposedBy"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#preferredChampion"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="it">Campioni preferiti dai giocatori del team</rdfs:comment>
+        <rdfs:label xml:lang="en">teamPreferredChampion</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/vincenturro/moba#useObject -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vincenturro/moba#useObject">
@@ -362,40 +414,6 @@
         <rdfs:range rdf:resource="http://www.semanticweb.org/vincenturro/moba#Oggetto"/>
         <rdfs:comment xml:lang="it">Un Champion usa un Item</rdfs:comment>
         <rdfs:label xml:lang="en">useObject</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/vincenturro/moba/hasRoleDamageDealer -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vincenturro/moba/hasRoleDamageDealer">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vincenturro/moba#Champion"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#burst_damage"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#sustain_damage"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#hasRole"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#isADamageDealer"/>
-        </owl:propertyChainAxiom>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/vincenturro/moba/hasRoleFrontLine -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vincenturro/moba/hasRoleFrontLine">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vincenturro/moba#Champion"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vincenturro/moba#bruiser"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vincenturro/moba#tank"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#hasRole"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vincenturro/moba#isAFrontLine"/>
-        </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
 
@@ -559,6 +577,7 @@
     <!-- http://www.semanticweb.org/vincenturro/moba#Abilità -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#Abilità">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#GameStructure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Character"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Oggetto"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Partita"/>
@@ -628,6 +647,7 @@
     <!-- http://www.semanticweb.org/vincenturro/moba#Character -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#Character">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#GameStructure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Oggetto"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Partita"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Player"/>
@@ -691,6 +711,16 @@
     
 
 
+    <!-- http://www.semanticweb.org/vincenturro/moba#GameStructure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#GameStructure">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#PlayerStructure"/>
+        <rdfs:comment xml:lang="it">Sezione dedicata agli elementi di gioco</rdfs:comment>
+        <rdfs:label xml:lang="en">GameStructure</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/vincenturro/moba#Minion -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#Minion">
@@ -715,6 +745,7 @@
     <!-- http://www.semanticweb.org/vincenturro/moba#Oggetto -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#Oggetto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#GameStructure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Partita"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Player"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Role"/>
@@ -730,6 +761,7 @@
     <!-- http://www.semanticweb.org/vincenturro/moba#Partita -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#Partita">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#PlayerStructure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Player"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Role"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Structure"/>
@@ -748,12 +780,22 @@
     <!-- http://www.semanticweb.org/vincenturro/moba#Player -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#Player">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#PlayerStructure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Role"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Structure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Team"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba/Place"/>
         <rdfs:comment xml:lang="it">Giocatore che comanda un Champion</rdfs:comment>
         <rdfs:label xml:lang="en">Player</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/vincenturro/moba#PlayerStructure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#PlayerStructure">
+        <rdfs:comment xml:lang="it">Sezione dedicata ai giocatori</rdfs:comment>
+        <rdfs:label xml:lang="en">PlayerStructure</rdfs:label>
     </owl:Class>
     
 
@@ -775,6 +817,7 @@
     <!-- http://www.semanticweb.org/vincenturro/moba#Role -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#Role">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#GameStructure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Structure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Team"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba/Place"/>
@@ -792,6 +835,7 @@
     <!-- http://www.semanticweb.org/vincenturro/moba#Structure -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#Structure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#GameStructure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba#Team"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba/Place"/>
         <owl:disjointUnionOf rdf:parseType="Collection">
@@ -816,6 +860,23 @@
     <!-- http://www.semanticweb.org/vincenturro/moba#Team -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba#Team">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/vincenturro/moba#teamComposedBy"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/vincenturro/moba#Player"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/vincenturro/moba#teamComposedBy"/>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:maxQualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.semanticweb.org/vincenturro/moba#Player"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#PlayerStructure"/>
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/vincenturro/moba/Place"/>
         <rdfs:comment xml:lang="it">Gruppo di più Player. Ogni Match vede due team che si scontrano.</rdfs:comment>
         <rdfs:label xml:lang="en">Team</rdfs:label>
@@ -1013,6 +1074,7 @@ Può essere composto da vari elementi</rdfs:comment>
     <!-- http://www.semanticweb.org/vincenturro/moba/Place -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/vincenturro/moba/Place">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#GameStructure"/>
         <rdfs:comment xml:lang="it">Elemento di tipo geografico</rdfs:comment>
         <rdfs:label xml:lang="en">Place</rdfs:label>
     </owl:Class>
@@ -1039,6 +1101,7 @@ Può essere composto da vari elementi</rdfs:comment>
     <!-- https://www.wikidata.org/entity/Q1062345 -->
 
     <owl:Class rdf:about="https://www.wikidata.org/entity/Q1062345">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vincenturro/moba#PlayerStructure"/>
         <rdfs:comment xml:lang="en">Wikidata Player</rdfs:comment>
         <rdfs:label xml:lang="en">Player_Q1062345</rdfs:label>
     </owl:Class>
@@ -1105,6 +1168,19 @@ Può essere composto da vari elementi</rdfs:comment>
         <rdf:type rdf:resource="http://www.semanticweb.org/vincenturro/moba#Team"/>
         <rdfs:comment xml:lang="it">Squadra di League Of Legends e di altri videogiochi competitivi</rdfs:comment>
         <rdfs:label xml:lang="en">G2 Esports</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/vincenturro/moba#QuarterFinal2021_G2_Esports_vs_Fnatic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vincenturro/moba#QuarterFinal2021_G2_Esports_vs_Fnatic">
+        <rdf:type rdf:resource="http://www.semanticweb.org/vincenturro/moba#Classica"/>
+        <rdfs:comment xml:lang="it">Quarti di Finale degli europei 2021.
+Squadre: 
+G2 Esports
+Fnatic</rdfs:comment>
+        <rdfs:label xml:lang="en">QuarterFinal2021 G2 Esports vs Fnatic</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1362,6 +1438,7 @@ Ashe&apos;s attacks slow their target, causing her to deal increased damage to t
 
     <owl:NamedIndividual rdf:about="http://www.wikidata.org/entity/Q18608567">
         <rdf:type rdf:resource="http://www.semanticweb.org/vincenturro/moba#Player"/>
+        <chooseMatch rdf:resource="http://www.semanticweb.org/vincenturro/moba#QuarterFinal2021_G2_Esports_vs_Fnatic"/>
         <hasTeammate rdf:resource="http://www.wikidata.org/entity/Q63418190"/>
         <isInTheTeam rdf:resource="http://www.semanticweb.org/vincenturro/moba#G2_Esports"/>
         <preferredChampion rdf:resource="http://www.semanticweb.org/vincenturro/moba#Ashe"/>

@@ -1,6 +1,5 @@
 body, button, input{
   font-family: 'Montserrat', sans-serif;
-  background-color: #fbb324;
 }
 
 body{
@@ -95,6 +94,14 @@ img{
 
 .reg-button:hover{
   background-color: #222 !important;
+}
+.input-right{
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.input-left{
+  display: inline-block;
 }
 
 a{

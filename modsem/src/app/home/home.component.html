@@ -1,13 +1,86 @@
 <body>
   <div class="p-grid ">
-    <div class="p-col-6" >
+    <div class="p-col-12" >
       <div>
         <h1>ModSem2020</h1>
       </div>
+      <button pButton pRipple type="submit" label="Champions" class="p-button-secondary" style="margin:6px;" (click)="view(true)"></button>
+      <button pButton pRipple type="submit" label="Players" class="p-button-secondary" style="margin:6px;" (click)="view(false)"></button>
       <!-- <p-dropdown [options]="roleoptions" [(ngModel)]="selectedRole" optionLabel="code"> -->
       <!-- </p-dropdown> -->
+      <div style="margin:20px;" [hidden]="isChampView===false">
+      <span class="p-float-label">
+          <input id="champ-input" type="text" pInputText [(ngModel)]="champName">
+          <label for="float-input">Champ Name</label>
+          <p style="display:inline; margin:20px; align:bottom">Choose Role</p>
+          <select class="custom-select" [(ngModel)]="selectedOption" [disabled]="champName!=='' ">
+            <option *ngFor="let role of roles">{{role}}</option>
+          </select>
+          <button pButton pRipple type="submit" label="Same Role" class="p-button-secondary" style="margin:6px;" (click)="sameRole()" [disabled]="champName=='' "></button>
+      </span>
+      <span>
+
+
+      <button pButton pRipple type="submit" label="Search" class="p-button-secondary" style="margin:6px; width:100%;" (click)="search()"></button>
+
+      </span>
+      <p-table class="shop-table" [value]="champResults">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Label</th>
+                <th>URI</th>
+                <th>Comment</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-result>
+            <tr>
+                <td>{{result.label}}</td>
+                <td style="overflow-wrap:break-word">{{result.uri}}</td>
+                <td>{{result.comment}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
     </div>
-  </div>
-  <div class="p-col-6">
+
+    <div style="margin:20px;" [hidden]="isChampView===true">
+      <span class="p-float-label input-left">
+          <input id="player-input" type="text" pInputText [(ngModel)]="playerName">
+          <label for="float-input">Player Name</label>
+
+          <!-- <button pButton pRipple type="submit" label="Same Team" class="p-button-secondary" style="margin:6px;" (click)="sameTeam()" [disabled]="playerName=='' "></button> -->
+      </span>
+      <span class="p-float-label input-right">
+        <input id="team-input" type="text" pInputText [(ngModel)]="teamName">
+        <label for="float-input">Team Name</label>
+      </span>
+      <span>
+
+
+        <button pButton pRipple type="submit" label="Search" class="p-button-secondary" style="margin:6px; width:100%;" (click)="searchPlayer()"></button>
+
+      </span>
+      <p-table class="shop-table" [value]="playerResults">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>URI</th>
+                <th>Team</th>
+                <th>image</th>
+                <th>Pref Champion</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-result>
+            <tr>
+                <td>{{result.label}}</td>
+                <td style="overflow-wrap:break-word">{{result.uri}}</td>
+                <td style="overflow-wrap:break-word">{{result.teamLabel}}</td>
+                <td style="overflow-wrap:break-word">{{result.image}}</td>
+                <td style="overflow-wrap:break-word">{{result.preferredChampion}}
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+
+    </div>
   </div>
 </body>

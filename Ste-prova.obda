@@ -13,7 +13,7 @@ untitled-ontology-5:	http://www.semanticweb.org/stevi/ontologies/2021/2/untitled
 
 [MappingDeclaration] @collection [[
 mappingId	MAPID-66d459eff4f64289b24673b301902ed4
-target		:{champ_name} a :Champion ; rdfs:label {champ_name} ; rdfs:comment {champ_comment}@en . 
+target		:{champ_name} a :Champion ; rdfs:label :rdfs:label{champ_name} ; rdfs:comment {champ_comment} . 
 source		select * from modsem_schema.modsem_table
 ]]
 

@@ -1,0 +1,14 @@
+@prefix : <http://www.semanticweb.org/vincenturro/moba#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:MAPID-66d459eff4f64289b24673b301902ed4> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "select * from modsem_schema.modsem_table"
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class :Champion;
+      rr:template "http://www.semanticweb.org/vincenturro/moba#{champ_name}";
+      rr:termType rr:IRI
+    ] .

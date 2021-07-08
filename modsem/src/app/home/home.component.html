@@ -6,8 +6,6 @@
       </div>
       <button pButton pRipple type="submit" label="Champions" class="p-button-secondary" style="margin:6px;" (click)="view(true)"></button>
       <button pButton pRipple type="submit" label="Players" class="p-button-secondary" style="margin:6px;" (click)="view(false)"></button>
-      <!-- <p-dropdown [options]="roleoptions" [(ngModel)]="selectedRole" optionLabel="code"> -->
-      <!-- </p-dropdown> -->
       <div style="margin:20px;" [hidden]="isChampView===false">
       <span class="p-float-label">
           <input id="champ-input" type="text" pInputText [(ngModel)]="champName">
@@ -46,8 +44,6 @@
       <span class="p-float-label input-left">
           <input id="player-input" type="text" pInputText [(ngModel)]="playerName">
           <label for="float-input">Player Name</label>
-
-          <!-- <button pButton pRipple type="submit" label="Same Team" class="p-button-secondary" style="margin:6px;" (click)="sameTeam()" [disabled]="playerName=='' "></button> -->
       </span>
       <span class="p-float-label input-right">
         <input id="team-input" type="text" pInputText [(ngModel)]="teamName">

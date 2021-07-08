@@ -1,0 +1,35 @@
+@prefix : <http://www.semanticweb.org/vincenturro/moba#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:MAPID-66d459eff4f64289b24673b301902ed4> a rr:TriplesMap;
+  rr:logicalTable [ a rr:R2RMLView;
+      rr:sqlQuery "select * from modsem_schema.modsem_table"
+    ];
+  rr:predicateObjectMap [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "champ_name";
+          rr:termType rr:Literal
+        ];
+      rr:predicate rdfs:label
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:column "champ_comment";
+          rr:language "en";
+          rr:termType rr:Literal
+        ];
+      rr:predicate rdfs:comment
+    ], [ a rr:PredicateObjectMap;
+      rr:objectMap [ a rr:ObjectMap, rr:TermMap;
+          rr:template "http://www.semanticweb.org/vincenturro/moba#role{champ_role}";
+          rr:termType rr:IRI
+        ];
+      rr:predicate :hasRole
+    ];
+  rr:subjectMap [ a rr:SubjectMap, rr:TermMap;
+      rr:class :Champion;
+      rr:template "http://www.semanticweb.org/vincenturro/moba#{champ_name}";
+      rr:termType rr:IRI
+    ] .

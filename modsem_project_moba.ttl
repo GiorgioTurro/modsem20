@@ -1,0 +1,1327 @@
+@prefix : <http://www.semanticweb.org/vincenturro/moba#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix moba: <http://www.semanticweb.org/vincenturro/moba#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix untitled-ontology-5: <http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#> .
+@base <http://www.semanticweb.org/vincenturro/moba> .
+
+<http://www.semanticweb.org/vincenturro/moba> rdf:type owl:Ontology ;
+                                               terms:creator "Turro Giorgio Enrico"@en ,
+                                                             "Vincenzi Stefano"@en ;
+                                               terms:date "2021-02-15T09:00:00"@en ;
+                                               terms:description "Descrizione delle caratteristiche dei MOBA e delle relazioni tra i suoi elementi"@it ;
+                                               terms:title "Multiplayer Online Battle Arena (MOBA)"@en ;
+                                               vann:preferredNamespacePrefix "moba" ;
+                                               vann:preferredNamespaceUri "http://www.semanticweb.org/vincenturro/moba" ;
+                                               rdfs:label "MOBA"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/date
+terms:date rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+terms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/vincenturro/moba#chooseAram
+moba:chooseAram rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf moba:chooseMatch ;
+                rdfs:domain moba:Player ;
+                rdfs:range moba:Aram ;
+                rdfs:comment "Un Player sceglie una tipologia specifica di match da giocare, un Aram."@it ;
+                rdfs:label "chooseAram"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#chooseChampion
+moba:chooseChampion rdf:type owl:ObjectProperty ,
+                             owl:AsymmetricProperty ;
+                    rdfs:domain moba:Player ;
+                    rdfs:range moba:Champion ;
+                    rdfs:comment "Un Player sceglie un Champion con cui giocare"@it ;
+                    rdfs:label "chooseChampion"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#chooseClassic
+moba:chooseClassic rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf moba:chooseMatch ;
+                   rdfs:domain [ rdf:type owl:Restriction ;
+                                 owl:onProperty moba:chooseMatch ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass moba:Classica
+                               ] ;
+                   rdfs:range moba:Classica ;
+                   rdfs:comment "Un Player sceglie una tipologia specifica di match da giocare, un Classic."@it ;
+                   rdfs:label "chooseClassic"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#chooseMatch
+moba:chooseMatch rdf:type owl:ObjectProperty ;
+                 rdfs:domain moba:Player ;
+                 rdfs:range moba:Partita ;
+                 rdfs:comment "Un Player sceglie un match da giocare"@it ;
+                 rdfs:label "chooseMatch"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#composedBy
+moba:composedBy rdf:type owl:ObjectProperty ;
+                rdfs:domain moba:mappa ;
+                rdfs:range [ rdf:type owl:Class ;
+                             owl:unionOf ( moba:Core
+                                           moba:Tower
+                                           moba:jungle
+                                           moba:lane
+                                           moba:spawn
+                                         )
+                           ] ;
+                rdfs:comment "Una Map è composta da più parti, ogni parte in numero variabile."@it ;
+                rdfs:label "composedBy"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#eventIncludedIn
+moba:eventIncludedIn rdf:type owl:ObjectProperty ;
+                     owl:inverseOf moba:participatingInEvent ;
+                     rdf:type owl:AsymmetricProperty ,
+                              owl:IrreflexiveProperty ;
+                     rdfs:domain moba:Event ;
+                     rdfs:range moba:ParticipantRole .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#hasAbility
+moba:hasAbility rdf:type owl:ObjectProperty ;
+                owl:inverseOf moba:isAnAbilityOf ;
+                rdf:type owl:InverseFunctionalProperty ,
+                         owl:AsymmetricProperty ;
+                rdfs:domain moba:Champion ;
+                rdfs:range moba:Abilità ;
+                rdfs:comment "Un Champion ha una o più Ability"@it ;
+                rdfs:label "hasAbility"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#hasParticipant
+moba:hasParticipant rdf:type owl:ObjectProperty ;
+                    owl:inverseOf moba:isParticipatingIn ;
+                    rdfs:domain moba:Event ;
+                    rdfs:range moba:Object .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#hasPng
+moba:hasPng rdf:type owl:ObjectProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( moba:jungle
+                                        moba:lane
+                                      )
+                        ] ;
+            rdfs:range moba:Png ;
+            rdfs:comment "Un Place può essere presidiata/percorsa da Png"@it ;
+            rdfs:label "hasPng"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#hasRole
+moba:hasRole rdf:type owl:ObjectProperty ,
+                      owl:AsymmetricProperty ;
+             rdfs:domain moba:Champion ;
+             rdfs:range [ rdf:type owl:Class ;
+                          owl:unionOf ( moba:Damage_dealer
+                                        moba:Front_line
+                                        moba:Sustain_team
+                                      )
+                        ] ;
+             rdfs:comment "Un Champion può avere uno o più ruoli"@it ;
+             rdfs:label "hasRole"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#hasStructure
+moba:hasStructure rdf:type owl:ObjectProperty ,
+                           owl:AsymmetricProperty ;
+                  rdfs:domain moba:lane ;
+                  rdfs:range moba:Structure ;
+                  rdfs:comment "Una Lane può avere una o più Structure"@it ;
+                  rdfs:label "hasStructure"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#hasTeammate
+moba:hasTeammate rdf:type owl:ObjectProperty ,
+                          owl:SymmetricProperty ,
+                          owl:TransitiveProperty ;
+                 rdfs:domain moba:Player ;
+                 rdfs:range moba:Player ;
+                 rdfs:comment "Un Player può avere uno o più compagni di squadra"@it ;
+                 rdfs:label "hasTeammate"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#isADamageDealer
+moba:isADamageDealer rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf moba:hasRole ;
+                     rdf:type owl:AsymmetricProperty ;
+                     rdfs:domain [ rdf:type owl:Class ;
+                                   owl:unionOf ( moba:Champion
+                                                 moba:Damage_dealer
+                                               )
+                                 ] ;
+                     rdfs:range [ rdf:type owl:Class ;
+                                  owl:unionOf ( moba:burst_damage
+                                                moba:sustain_damage
+                                              )
+                                ] ;
+                     rdfs:comment "Un Champion può avere un ruolo di DamageDealer"@it ;
+                     rdfs:label "isADamageDealer"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#isAFrontLine
+moba:isAFrontLine rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf moba:hasRole ;
+                  rdf:type owl:AsymmetricProperty ;
+                  rdfs:domain moba:Champion ;
+                  rdfs:range [ rdf:type owl:Class ;
+                               owl:unionOf ( moba:bruiser
+                                             moba:tank
+                                           )
+                             ] ;
+                  rdfs:comment "Un Champion può avere un ruolo di FrontLine"@it ;
+                  rdfs:label "isAFrontLine"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#isASustainTeam
+moba:isASustainTeam rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf moba:hasRole ;
+                    rdf:type owl:AsymmetricProperty ;
+                    rdfs:domain moba:Champion ;
+                    rdfs:range moba:healer ,
+                               moba:support ;
+                    rdfs:comment "Un Champion può avere un ruolo di Sustain Team"@it ;
+                    rdfs:label "isASustainTeam"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#isAnAbilityOf
+moba:isAnAbilityOf rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain [ rdf:type owl:Class ;
+                                 owl:unionOf ( moba:base
+                                               moba:eroica
+                                               moba:passive
+                                             )
+                               ] ;
+                   rdfs:range moba:Champion ;
+                   rdfs:comment "Un Ability è in possesso di un Champion"@it ;
+                   rdfs:label "isAnAbilityOf"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#isInTheTeam
+moba:isInTheTeam rdf:type owl:ObjectProperty ;
+                 owl:inverseOf moba:teamComposedBy ;
+                 rdf:type owl:AsymmetricProperty ;
+                 rdfs:domain moba:Player ;
+                 rdfs:range moba:Team ;
+                 rdfs:comment "Un Player può appartenere a un Team"@it ;
+                 rdfs:label "isInTheTeam"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#isParticipatingIn
+moba:isParticipatingIn rdf:type owl:ObjectProperty ;
+                       rdfs:domain moba:Object ;
+                       rdfs:range moba:Event .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#isUsedBy
+moba:isUsedBy rdf:type owl:ObjectProperty ;
+              owl:inverseOf moba:useObject ;
+              rdf:type owl:AsymmetricProperty ;
+              rdfs:domain moba:Oggetto ;
+              rdfs:range moba:Champion ;
+              rdfs:comment "Un Champion può usare (Consumare o Equipaggiarsi) di un Item"@it ;
+              rdfs:label "isUsedBy"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#objectIncludedIn
+moba:objectIncludedIn rdf:type owl:ObjectProperty ;
+                      owl:inverseOf moba:objectParticipating ;
+                      rdfs:domain moba:Object ;
+                      rdfs:range moba:ParticipantRole .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#objectParticipating
+moba:objectParticipating rdf:type owl:ObjectProperty ;
+                         rdfs:domain moba:ParticipantRole ;
+                         rdfs:range moba:Object .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#participatingInEvent
+moba:participatingInEvent rdf:type owl:ObjectProperty ;
+                          rdfs:domain moba:ParticipantRole ;
+                          rdfs:range moba:Event .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#preferredChampion
+moba:preferredChampion rdf:type owl:ObjectProperty ,
+                                owl:AsymmetricProperty ;
+                       rdfs:domain moba:Player ;
+                       rdfs:range moba:Champion .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#roleIncludedIn
+moba:roleIncludedIn rdf:type owl:ObjectProperty ;
+                    owl:inverseOf moba:roleOfParticipant ;
+                    rdfs:domain moba:RoleObject ;
+                    rdfs:range moba:ParticipantRole .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#roleOfParticipant
+moba:roleOfParticipant rdf:type owl:ObjectProperty ;
+                       rdfs:domain moba:ParticipantRole ;
+                       rdfs:range moba:RoleObject .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#sameRole
+moba:sameRole rdf:type owl:ObjectProperty ,
+                       owl:SymmetricProperty ,
+                       owl:TransitiveProperty ;
+              rdfs:domain moba:Champion ;
+              rdfs:range moba:Champion ;
+              rdfs:comment "Un Champion può essere dello stesso ruolo di un altro Champion"@it ;
+              rdfs:label "sameRole"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#teamComposedBy
+moba:teamComposedBy rdf:type owl:ObjectProperty ,
+                             owl:InverseFunctionalProperty ;
+                    rdfs:domain moba:Team ;
+                    rdfs:range moba:Player ;
+                    rdfs:comment "Composizione del team"@it ;
+                    rdfs:label "teamComposedBy"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#teamPlaysMatch
+moba:teamPlaysMatch rdf:type owl:ObjectProperty ;
+                    rdfs:domain moba:Team ;
+                    rdfs:range moba:Partita ;
+                    owl:propertyChainAxiom ( moba:teamComposedBy
+                                             moba:chooseMatch
+                                           ) ;
+                    rdfs:comment "Match giocati da un team"@it ;
+                    rdfs:label "teamPlaysMatch"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#teamPreferredChampion
+moba:teamPreferredChampion rdf:type owl:ObjectProperty ;
+                           rdfs:domain moba:Team ;
+                           rdfs:range moba:Champion ;
+                           owl:propertyChainAxiom ( moba:teamComposedBy
+                                                    moba:preferredChampion
+                                                  ) ;
+                           rdfs:comment "Campioni preferiti dai giocatori del team"@it ;
+                           rdfs:label "teamPreferredChampion"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#useObject
+moba:useObject rdf:type owl:ObjectProperty ,
+                        owl:AsymmetricProperty ;
+               rdfs:domain moba:Champion ;
+               rdfs:range moba:Oggetto ;
+               rdfs:comment "Un Champion usa un Item"@it ;
+               rdfs:label "useObject"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/vincenturro/moba#attackIs
+moba:attackIs rdf:type owl:DatatypeProperty ;
+              rdfs:domain moba:Champion ,
+                          moba:Character ;
+              rdfs:range xsd:nonNegativeInteger ;
+              rdfs:comment "Valore numerico positivo relativo all'attacco di un Character"@it ;
+              rdfs:label "attackIs"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#consumabile
+moba:consumabile rdf:type owl:DatatypeProperty ;
+                 rdfs:domain moba:Oggetto ;
+                 rdfs:range xsd:boolean ;
+                 rdfs:comment "Identifica se un Item è consumabile (in alternativa è un Item equipaggiabile)"@it ;
+                 rdfs:label "consumable"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#defenseIs
+moba:defenseIs rdf:type owl:DatatypeProperty ;
+               rdfs:domain moba:Champion ,
+                           moba:Character ;
+               rdfs:range xsd:nonNegativeInteger ;
+               rdfs:comment "Valore numerico positivo relativo alla difesa di un Character"@it ;
+               rdfs:label "defenceIs"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#hasRank
+moba:hasRank rdf:type owl:DatatypeProperty ;
+             rdfs:domain moba:Player ;
+             rdfs:range xsd:nonNegativeInteger ;
+             rdfs:comment "Identifica il Rank di un giocatore"@it ;
+             rdfs:label "hasRank"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#hasTeam
+moba:hasTeam rdf:type owl:DatatypeProperty ;
+             rdfs:domain moba:Minion ,
+                         moba:Structure ;
+             rdfs:range [ rdf:type rdfs:Datatype ;
+                          owl:oneOf [ rdf:type rdf:List ;
+                                      rdf:first "Blue" ;
+                                      rdf:rest [ rdf:type rdf:List ;
+                                                 rdf:first "Red" ;
+                                                 rdf:rest rdf:nil
+                                               ]
+                                    ]
+                        ] ;
+             rdfs:comment "Blue o Red se un Minion o una Struttura è Blue o Red"@it ;
+             rdfs:label "hasTeam"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#healthIs
+moba:healthIs rdf:type owl:DatatypeProperty ;
+              rdfs:domain moba:Champion ;
+              rdfs:range xsd:nonNegativeInteger ;
+              rdfs:comment "Valore numerico positivo relativo alla vita di un Character"@it ;
+              rdfs:label "healthIs"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#improveHealth
+moba:improveHealth rdf:type owl:DatatypeProperty ;
+                   rdfs:domain moba:Oggetto ;
+                   rdfs:range xsd:nonNegativeInteger ;
+                   rdfs:comment "Valore numerico positivo relativo all'aumento di vita di un Item"@it ;
+                   rdfs:label "improveHealth"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#manaIs
+moba:manaIs rdf:type owl:DatatypeProperty ;
+            rdfs:domain moba:Champion ;
+            rdfs:range xsd:nonNegativeInteger ;
+            rdfs:comment "Valore numerico positivo relativo al mana di un Character"@it ;
+            rdfs:label "manaIs"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#typeOfAttack
+moba:typeOfAttack rdf:type owl:DatatypeProperty ;
+                  rdfs:domain moba:Champion ;
+                  rdfs:range [ rdf:type rdfs:Datatype ;
+                               owl:oneOf [ rdf:type rdf:List ;
+                                           rdf:first "Melee" ;
+                                           rdf:rest [ rdf:type rdf:List ;
+                                                      rdf:first "Ranged" ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+                             ] ;
+                  rdfs:comment "Identifica il tipo di attacco di un Champion: Melee o Ranged"@it ;
+                  rdfs:label "typeOfAttack"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/vincenturro/moba#Abilità
+moba:Abilità rdf:type owl:Class ;
+             rdfs:subClassOf moba:GameStructure ;
+             owl:disjointWith moba:Character ,
+                              moba:Oggetto ,
+                              moba:Partita ,
+                              moba:Player ,
+                              moba:Role ,
+                              moba:Structure ,
+                              moba:Team ,
+                              <http://www.semanticweb.org/vincenturro/moba/Place> ;
+             owl:disjointUnionOf ( moba:base
+                                   moba:eroica
+                                   moba:passive
+                                 ) ;
+             rdfs:comment "Abilità che un Champion può possedere"@it ;
+             rdfs:label "Ability"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Aram
+moba:Aram rdf:type owl:Class ;
+          rdfs:subClassOf moba:Partita ;
+          owl:disjointWith moba:Classica ;
+          rdfs:comment "Modalità di Match, solitamente più breve e con una mappa ridotta."@it ;
+          rdfs:label "Aram"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Champion
+moba:Champion rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty moba:hasRole ;
+                                                           owl:someValuesFrom moba:Role
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty moba:hasAbility ;
+                                                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass moba:base
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty moba:hasAbility ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass moba:eroica
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty moba:hasAbility ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onClass moba:passive
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf moba:Character ;
+              owl:disjointWith moba:Png ;
+              rdfs:comment "Personaggio selezionabile di un MOBA e controllato da un Player."@it ;
+              rdfs:label "Champion"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Character
+moba:Character rdf:type owl:Class ;
+               rdfs:subClassOf moba:GameStructure ;
+               owl:disjointWith moba:Oggetto ,
+                                moba:Partita ,
+                                moba:Player ,
+                                moba:Role ,
+                                moba:Structure ,
+                                moba:Team ,
+                                <http://www.semanticweb.org/vincenturro/moba/Place> ;
+               owl:disjointUnionOf ( moba:Champion
+                                     moba:Png
+                                   ) ;
+               rdfs:comment "Personaggio di un MOBA"@it ;
+               rdfs:label "Character"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Classica
+moba:Classica rdf:type owl:Class ;
+              rdfs:subClassOf moba:Partita ;
+              rdfs:comment "Una partita Classica. La mappa è quella standard e le dinamiche di gioco sono più ampie e complesse."@it ;
+              rdfs:label "Classic"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Core
+moba:Core rdf:type owl:Class ;
+          rdfs:subClassOf moba:Structure ;
+          owl:disjointWith moba:Tower ,
+                           moba:spawn ;
+          rdfs:comment "Struttura principale. Ogni squadra ha un Nexus posizionato nelle rispettive basi. Se un team distrugge il Nexus avversario ha vinto la partita."@it ;
+          rdfs:label "Core"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Damage_dealer
+moba:Damage_dealer rdf:type owl:Class ;
+                   rdfs:subClassOf moba:Role ;
+                   owl:disjointUnionOf ( moba:burst_damage
+                                         moba:sustain_damage
+                                       ) .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Event
+moba:Event rdf:type owl:Class ;
+           rdfs:subClassOf moba:Participant_Role_ODP ;
+           owl:disjointWith moba:Object ,
+                            moba:ParticipantRole ,
+                            moba:RoleObject .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Front_line
+moba:Front_line rdf:type owl:Class ;
+                rdfs:subClassOf moba:Role ;
+                owl:disjointUnionOf ( moba:bruiser
+                                      moba:tank
+                                    ) .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#GameStructure
+moba:GameStructure rdf:type owl:Class ;
+                   owl:disjointWith moba:PlayerStructure ;
+                   rdfs:comment "Sezione dedicata agli elementi di gioco"@it ;
+                   rdfs:label "GameStructure"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Minion
+moba:Minion rdf:type owl:Class ;
+            rdfs:subClassOf moba:Png ;
+            owl:disjointWith moba:Monster ;
+            rdfs:comment "Personaggi alleati o nemici. Percorrono le lane e attaccano i nemici. Solitamente hanno una vita e un attacco basso."@it ;
+            rdfs:label "Minion"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Monster
+moba:Monster rdf:type owl:Class ;
+             rdfs:subClassOf moba:Png ;
+             rdfs:comment "Personaggi neutrali. Solitamente si trovano nella giungla e, una volta uccisi, danno esperienza e buff."@it ;
+             rdfs:label "Monster"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Object
+moba:Object rdf:type owl:Class ;
+            rdfs:subClassOf moba:Participant_Role_ODP ;
+            owl:disjointWith moba:ParticipantRole ,
+                             moba:RoleObject .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Oggetto
+moba:Oggetto rdf:type owl:Class ;
+             rdfs:subClassOf moba:GameStructure ;
+             owl:disjointWith moba:Partita ,
+                              moba:Player ,
+                              moba:Role ,
+                              moba:Structure ,
+                              moba:Team ,
+                              <http://www.semanticweb.org/vincenturro/moba/Place> ;
+             rdfs:comment "Oggetto del quale un Champion si può equipaggiare"@it ;
+             rdfs:label "Item"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#ParticipantRole
+moba:ParticipantRole rdf:type owl:Class ;
+                     rdfs:subClassOf moba:Participant_Role_ODP ;
+                     owl:disjointWith moba:RoleObject .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Participant_Role_ODP
+moba:Participant_Role_ODP rdf:type owl:Class ;
+                          rdfs:subClassOf moba:PlayerStructure .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Partita
+moba:Partita rdf:type owl:Class ;
+             rdfs:subClassOf moba:PlayerStructure ;
+             owl:disjointWith moba:Player ,
+                              moba:Role ,
+                              moba:Structure ,
+                              moba:Team ,
+                              <http://www.semanticweb.org/vincenturro/moba/Place> ;
+             owl:disjointUnionOf ( moba:Aram
+                                   moba:Classica
+                                 ) ;
+             rdfs:comment "Singola partita disputata tra due Team"@it ;
+             rdfs:label "Match"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Player
+moba:Player rdf:type owl:Class ;
+            rdfs:subClassOf moba:PlayerStructure ;
+            owl:disjointWith moba:Role ,
+                             moba:Structure ,
+                             moba:Team ,
+                             <http://www.semanticweb.org/vincenturro/moba/Place> ;
+            rdfs:comment "Giocatore che comanda un Champion"@it ;
+            rdfs:label "Player"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#PlayerStructure
+moba:PlayerStructure rdf:type owl:Class ;
+                     rdfs:comment "Sezione dedicata ai giocatori"@it ;
+                     rdfs:label "PlayerStructure"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Png
+moba:Png rdf:type owl:Class ;
+         rdfs:subClassOf moba:Character ;
+         owl:disjointUnionOf ( moba:Minion
+                               moba:Monster
+                             ) ;
+         rdfs:comment "Png (Personaggio Non Giocante), tutti gli elementi del gioco che reagiscono secondo una certa logica alle azioni del giocatore"@it ;
+         rdfs:label "Png"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Role
+moba:Role rdf:type owl:Class ;
+          rdfs:subClassOf moba:GameStructure ;
+          owl:disjointWith moba:Structure ,
+                           moba:Team ,
+                           <http://www.semanticweb.org/vincenturro/moba/Place> ;
+          owl:disjointUnionOf ( moba:Front_line
+                                moba:Sustain_team
+                                moba:sustain_damage
+                              ) ;
+          rdfs:comment "Ruolo al quale un Chamion può afferire"@it ;
+          rdfs:label "Role"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#RoleObject
+moba:RoleObject rdf:type owl:Class ;
+                rdfs:subClassOf moba:Participant_Role_ODP .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Structure
+moba:Structure rdf:type owl:Class ;
+               rdfs:subClassOf moba:GameStructure ;
+               owl:disjointWith moba:Team ,
+                                <http://www.semanticweb.org/vincenturro/moba/Place> ;
+               owl:disjointUnionOf ( moba:Core
+                                     moba:Tower
+                                     moba:spawn
+                                   ) ;
+               rdfs:comment "Struttura all'interno di una mappa"@it ;
+               rdfs:label "Structure"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Sustain_team
+moba:Sustain_team rdf:type owl:Class ;
+                  rdfs:subClassOf moba:Role .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Team
+moba:Team rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                       owl:onProperty moba:teamComposedBy ;
+                                                       owl:minQualifiedCardinality "3"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass moba:Player
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty moba:teamComposedBy ;
+                                                       owl:maxQualifiedCardinality "5"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass moba:Player
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ;
+          rdfs:subClassOf moba:PlayerStructure ;
+          owl:disjointWith <http://www.semanticweb.org/vincenturro/moba/Place> ;
+          rdfs:comment "Gruppo di più Player. Ogni Match vede due team che si scontrano."@it ;
+          rdfs:label "Team"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Tower
+moba:Tower rdf:type owl:Class ;
+           rdfs:subClassOf moba:Structure ;
+           owl:disjointWith moba:spawn ;
+           rdfs:comment "Struttura di difesa, ogni team ne possiede almeno una. Le torri hanno molta vita e attaccano chi è nel loro range di attacco."@it ;
+           rdfs:label "Tower"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#base
+moba:base rdf:type owl:Class ;
+          rdfs:subClassOf moba:Abilità ;
+          owl:disjointWith moba:eroica ,
+                           moba:passive ;
+          rdfs:comment "Abilità base, solitamente un Champion ha più di un'abilità base."@it ;
+          rdfs:label "Base"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#bruiser
+moba:bruiser rdf:type owl:Class ;
+             rdfs:subClassOf moba:Front_line ;
+             owl:disjointWith moba:tank .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#burst_damage
+moba:burst_damage rdf:type owl:Class ;
+                  rdfs:subClassOf moba:Damage_dealer ;
+                  owl:disjointWith moba:sustain_damage ;
+                  rdfs:comment "Tipo di ruolo, solitamente maghi. Tramite le abilità sono in grado di fare molto danno in poco tempo."@it ;
+                  rdfs:label "Burst_damage"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#eroica
+moba:eroica rdf:type owl:Class ;
+            rdfs:subClassOf moba:Abilità ;
+            owl:disjointWith moba:passive ;
+            rdfs:comment "Abilità Eroica. Solitamente è un'abilità potente e un Champion ne possiede solo una."@it ;
+            rdfs:label "Eroic"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#healer
+moba:healer rdf:type owl:Class ;
+            rdfs:subClassOf moba:Sustain_team .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#jungle
+moba:jungle rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.semanticweb.org/vincenturro/moba/Place> ;
+            owl:disjointWith moba:lane ;
+            rdfs:comment """Porzione di mappa.
+Nella giungla sono presenti solitamente mostri neutrali."""@it ;
+            rdfs:label "Jungle"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#lane
+moba:lane rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                       owl:onProperty moba:hasPng ;
+                                                       owl:allValuesFrom moba:Minion
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty moba:hasStructure ;
+                                                       owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                       owl:onClass moba:Tower
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] ;
+          rdfs:subClassOf <http://www.semanticweb.org/vincenturro/moba/Place> ;
+          rdfs:comment """Settore di mappa per lo più lineare come indica il nome.
+Le lane sono percorse solitamente dai Minion."""@it ;
+          rdfs:label "Lane"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#mappa
+moba:mappa rdf:type owl:Class ;
+           owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                        owl:onProperty moba:composedBy ;
+                                                        owl:someValuesFrom moba:jungle
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty moba:composedBy ;
+                                                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onClass moba:lane
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty moba:composedBy ;
+                                                        owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                        owl:onClass moba:Tower
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty moba:composedBy ;
+                                                        owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                        owl:onClass moba:Core
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty moba:composedBy ;
+                                                        owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                        owl:onClass moba:spawn
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf <http://www.semanticweb.org/vincenturro/moba/Place> ;
+           rdfs:comment """La mappa in cui si disputa un match.
+Può essere composto da vari elementi"""@it ;
+           rdfs:label "Map"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#passive
+moba:passive rdf:type owl:Class ;
+             rdfs:subClassOf moba:Abilità ;
+             rdfs:comment "Abilità passiva, solitamente un Champion ne ha solo una ed è un'abilità che non si può controllare."@it ;
+             rdfs:label "Passive"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#spawn
+moba:spawn rdf:type owl:Class ;
+           rdfs:subClassOf moba:Structure ;
+           rdfs:comment "Luogo in cui un Champion appare all'inizio del match, se ucciso o se ha effettuato un ritorno in base."@it ;
+           rdfs:label "Spawn"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#support
+moba:support rdf:type owl:Class ;
+             rdfs:subClassOf moba:Sustain_team .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#sustain_damage
+moba:sustain_damage rdf:type owl:Class ;
+                    rdfs:subClassOf moba:Damage_dealer ;
+                    rdfs:comment "Tipologia di ruolo, questi Champion hanno un elevato attacco e si focalizzano sugli attacchi base."@it ;
+                    rdfs:label "Sustain_damage"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#tank
+moba:tank rdf:type owl:Class ;
+          rdfs:subClassOf moba:Front_line .
+
+
+###  http://www.semanticweb.org/vincenturro/moba/Place
+<http://www.semanticweb.org/vincenturro/moba/Place> rdf:type owl:Class ;
+                                                    rdfs:subClassOf moba:GameStructure ;
+                                                    rdfs:comment "Elemento di tipo geografico"@it ;
+                                                    rdfs:label "Place"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba/Vision&Trinket
+<http://www.semanticweb.org/vincenturro/moba/Vision&Trinket> rdf:type owl:Class ;
+                                                             owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                   owl:oneOf ( <http://www.semanticweb.org/vincenturro/moba/Control_Ward>
+                                                                                               <http://www.semanticweb.org/vincenturro/moba/Farsight_Alteration>
+                                                                                               <http://www.semanticweb.org/vincenturro/moba/Stealth_Ward>
+                                                                                             )
+                                                                                 ] ;
+                                                             rdfs:subClassOf moba:Oggetto .
+
+
+###  https://www.wikidata.org/entity/Q1062345
+<https://www.wikidata.org/entity/Q1062345> rdf:type owl:Class ;
+                                           rdfs:subClassOf moba:PlayerStructure ;
+                                           rdfs:comment "Wikidata Player"@en ;
+                                           rdfs:label "Player_Q1062345"@en .
+
+
+###  https://www.wikidata.org/entity/Q1964626
+<https://www.wikidata.org/entity/Q1964626> rdf:type owl:Class ;
+                                           rdfs:subClassOf moba:Front_line ;
+                                           rdfs:comment "Wikidata Tank"@en ;
+                                           rdfs:label "Tank_Q1964626"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/vincenturro/moba#ADC_ODP
+moba:ADC_ODP rdf:type owl:NamedIndividual ,
+                      moba:RoleObject ;
+             rdfs:comment "Role ODP"@en ;
+             rdfs:label "ADC_ODP"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Aatrox
+moba:Aatrox rdf:type owl:NamedIndividual ,
+                     moba:Champion ,
+                     moba:Character ,
+                     moba:GameStructure ;
+            rdfs:comment "Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find freedom once more, corrupting and transforming those foolish enough to try and wield the magical weapon that contained his essence. Now, with stolen flesh, he walks Runeterra in a brutal approximation of his previous form, seeking an apocalyptic and long overdue vengeance."^^xsd:string .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Aphelios
+moba:Aphelios rdf:type owl:NamedIndividual ,
+                       moba:Champion ,
+                       moba:Character ,
+                       moba:GameStructure ;
+              moba:isADamageDealer moba:sustainDamage ;
+              rdfs:comment "Emerging from moonlight's shadow with weapons drawn, Aphelios kills the enemies of his faith in brooding silence—speaking only through the certainty of his aim, and the firing of each gun. Though fueled by a poison that renders him mute, he is guided by his sister Alune. From her distant temple sanctuary, she pushes an arsenal of moonstone weapons into his hands. For as long as the moon shines overhead, Aphelios will never be alone."@en ;
+              rdfs:label "Aphelios"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Ashe
+moba:Ashe rdf:type owl:NamedIndividual ,
+                   moba:Champion ,
+                   moba:Character ,
+                   moba:GameStructure ;
+          moba:hasAbility moba:enchanted_crystal_arrow ,
+                          moba:frost_shot ,
+                          moba:hawkshot ,
+                          moba:volley ,
+                          <http://www.semanticweb.org/vincenturro/moba#ranger's_focus> ;
+          moba:hasRole moba:sustainDamage ;
+          moba:isADamageDealer moba:sustainDamage ;
+          moba:sameRole moba:Aphelios ;
+          moba:attackIs "59"^^xsd:nonNegativeInteger ;
+          moba:defenseIs "26"^^xsd:nonNegativeInteger ;
+          moba:healthIs "570"^^xsd:nonNegativeInteger ;
+          moba:manaIs "280"^^xsd:nonNegativeInteger ;
+          moba:typeOfAttack "Ranged"^^xsd:string ;
+          rdfs:comment "Iceborn warmother of the Avarosan tribe, Ashe commands the most populous horde in the north. Stoic, intelligent, and idealistic, yet uncomfortable with her role as leader, she taps into the ancestral magics of her lineage to wield a bow of True Ice. With her people's belief that she is the mythological hero Avarosa reincarnated, Ashe hopes to unify the Freljord once more by retaking their ancient, tribal lands."^^xsd:string ;
+          rdfs:label "Ashe"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#G2_Esports
+moba:G2_Esports rdf:type owl:NamedIndividual ,
+                         moba:PlayerStructure ,
+                         moba:Team ;
+                moba:teamComposedBy <http://www.wikidata.org/entity/Q18608567> ,
+                                    <http://www.wikidata.org/entity/Q60734644> ,
+                                    <http://www.wikidata.org/entity/Q63418190> ;
+                rdfs:comment "Squadra di League Of Legends e di altri videogiochi competitivi"@it ;
+                rdfs:label "G2 Esports"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Jungler_ODP
+moba:Jungler_ODP rdf:type owl:NamedIndividual ,
+                          moba:RoleObject ;
+                 rdfs:comment "Role ODP"@en ;
+                 rdfs:label "Jungler_ODP"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#LCS_2021
+moba:LCS_2021 rdf:type owl:NamedIndividual ,
+                       moba:Event ;
+              rdfs:comment "American Championship"@en ;
+              rdfs:label "LCS_2021"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#LCS_2021_G2_Esports_Team
+moba:LCS_2021_G2_Esports_Team rdf:type owl:NamedIndividual ,
+                                       moba:ParticipantRole ;
+                              moba:objectParticipating <http://www.wikidata.org/entity/Q18608567> ;
+                              moba:participatingInEvent moba:LCS_2021 ;
+                              moba:roleOfParticipant moba:ADC_ODP ;
+                              rdfs:label "LCS_2021_Rekkles"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#LEC_2021
+moba:LEC_2021 rdf:type owl:NamedIndividual ,
+                       moba:Event ;
+              rdfs:comment "European Championship"@en ;
+              rdfs:label "LEC_2021"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#MID_ODP
+moba:MID_ODP rdf:type owl:NamedIndividual ;
+             rdfs:comment "Role ODP"@en ;
+             rdfs:label "Mid_ODP"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#QuarterFinal2021_G2_Esports_vs_Fnatic
+moba:QuarterFinal2021_G2_Esports_vs_Fnatic rdf:type owl:NamedIndividual ,
+                                                    moba:Classica ,
+                                                    moba:Partita ,
+                                                    moba:PlayerStructure ;
+                                           rdfs:comment """Quarti di Finale degli europei 2021.
+Squadre: 
+G2 Esports
+Fnatic"""@it ;
+                                           rdfs:label "QuarterFinal2021 G2 Esports vs Fnatic"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Support_ODP
+moba:Support_ODP rdf:type owl:NamedIndividual ,
+                          moba:RoleObject ;
+                 rdfs:comment "Role ODP"@en ;
+                 rdfs:label "Support_ODP"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#TOP_ODP
+moba:TOP_ODP rdf:type owl:NamedIndividual ,
+                      moba:RoleObject ;
+             rdfs:comment "Role ODP"@en ;
+             rdfs:label "Top_ODP"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#bruiser
+moba:bruiser rdf:type owl:NamedIndividual ,
+                      moba:Front_line ,
+                      moba:GameStructure ,
+                      moba:Role ,
+                      moba:bruiser .
+
+[ rdf:type owl:NegativePropertyAssertion ;
+   owl:sourceIndividual moba:bruiser ;
+   owl:assertionProperty moba:isAFrontLine ;
+   owl:targetIndividual moba:tank
+ ] .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#burstDamage
+moba:burstDamage rdf:type owl:NamedIndividual ,
+                          moba:Damage_dealer ,
+                          moba:GameStructure ,
+                          moba:Role ,
+                          moba:burst_damage ;
+                 rdfs:comment """Individuo relativo alla classe BurstDamage.
+Tipo di ruolo, solitamente maghi. Tramite le abilità sono in grado di fare molto danno in poco tempo."""@it ;
+                 rdfs:label "BurstDamage"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#enchanted_crystal_arrow
+moba:enchanted_crystal_arrow rdf:type owl:NamedIndividual ,
+                                      moba:Abilità ,
+                                      moba:GameStructure ,
+                                      moba:eroica ;
+                             moba:isAnAbilityOf moba:Ashe ;
+                             rdfs:comment "Ashe fires a missile of ice in a straight line. If the arrow collides with an enemy Champion, it deals damage and stuns the Champion, stunning for longer the farther arrow has traveled. In addition, surrounding enemy units take damage and are slowed."^^xsd:string ;
+                             rdfs:label "enchanted_crystal_arrow"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#frost_shot
+moba:frost_shot rdf:type owl:NamedIndividual ,
+                         moba:Abilità ,
+                         moba:GameStructure ,
+                         moba:passive ;
+                moba:isAnAbilityOf moba:Ashe ;
+                rdfs:comment """Passive.
+Ashe's attacks slow their target, causing her to deal increased damage to these targets. Ashe's critical strikes deal no bonus damage but apply an empowered slow to the target."""@en ;
+                rdfs:label "Frost_Shot"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#hawkshot
+moba:hawkshot rdf:type owl:NamedIndividual ,
+                       moba:Abilità ,
+                       moba:GameStructure ,
+                       moba:base ;
+              moba:isAnAbilityOf moba:Ashe ;
+              rdfs:comment "Ashe sends her Hawk Spirit on a scouting mission anywhere on the map."@en ;
+              rdfs:label "Hawkshot"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#healer
+moba:healer rdf:type owl:NamedIndividual ,
+                     moba:GameStructure ,
+                     moba:Role ,
+                     moba:Sustain_team ,
+                     moba:healer .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#noob1
+moba:noob1 rdf:type owl:NamedIndividual ,
+                    moba:Player ,
+                    moba:PlayerStructure ;
+           moba:chooseChampion moba:Ashe ;
+           moba:hasTeammate moba:noob2 ;
+           moba:isInTheTeam moba:teamBlue ;
+           rdfs:comment "Individuo relativo a un Player non esperto"@it ;
+           rdfs:label "Noob1"@en .
+
+[ rdf:type owl:NegativePropertyAssertion ;
+   owl:sourceIndividual moba:noob1 ;
+   owl:assertionProperty moba:hasTeammate ;
+   owl:targetIndividual moba:proplayer1
+ ] .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#noob2
+moba:noob2 rdf:type owl:NamedIndividual ,
+                    moba:Player ,
+                    moba:PlayerStructure ;
+           moba:hasTeammate moba:noob1 ;
+           moba:isInTheTeam moba:teamRed ;
+           rdfs:comment "Individuo relativo a un Player non esperto"@it ;
+           rdfs:label "Noob2"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#pozioneBase
+moba:pozioneBase rdf:type owl:NamedIndividual ,
+                          moba:GameStructure ,
+                          moba:Oggetto ;
+                 moba:consumabile "true"^^xsd:boolean ;
+                 moba:improveHealth "100"^^xsd:nonNegativeInteger ;
+                 rdfs:comment "Pozione di base, fornisce una moderata quantità di salute"@it ;
+                 rdfs:label "Base_Potion"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#proplayer1
+moba:proplayer1 rdf:type owl:NamedIndividual ,
+                         moba:Player ,
+                         moba:PlayerStructure ;
+                moba:hasTeammate moba:proplayer2 ;
+                moba:isInTheTeam moba:teamRed ;
+                rdfs:comment "Individuo relativo a un Player esperto"@it ;
+                rdfs:label "Proplayer1"@en .
+
+[ rdf:type owl:NegativePropertyAssertion ;
+   owl:sourceIndividual moba:proplayer1 ;
+   owl:assertionProperty moba:hasTeammate ;
+   owl:targetIndividual moba:noob1
+ ] .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#proplayer2
+moba:proplayer2 rdf:type owl:NamedIndividual ,
+                         moba:Player ,
+                         moba:PlayerStructure ;
+                moba:hasTeammate moba:proplayer1 ;
+                rdfs:comment "Individuo relativo a un Player esperto"@it ;
+                rdfs:label "Proplayer2"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#support
+moba:support rdf:type owl:NamedIndividual ,
+                      moba:GameStructure ,
+                      moba:Role ,
+                      moba:Sustain_team ,
+                      moba:support .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#sustainDamage
+moba:sustainDamage rdf:type owl:NamedIndividual ,
+                            moba:Damage_dealer ,
+                            moba:GameStructure ,
+                            moba:Role ,
+                            moba:sustain_damage ;
+                   rdfs:comment "Individuo relativo a una classe. Tipologia di ruolo, questi Champion hanno un elevato attacco e si focalizzano sugli attacchi base."@it ;
+                   rdfs:label "SustainDamage"@en .
+
+[ rdf:type owl:NegativePropertyAssertion ;
+   owl:sourceIndividual moba:sustainDamage ;
+   owl:assertionProperty moba:isADamageDealer ;
+   owl:targetIndividual moba:burstDamage
+ ] .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#tank
+moba:tank rdf:type owl:NamedIndividual ,
+                   moba:Front_line ,
+                   moba:GameStructure ,
+                   moba:Role ,
+                   moba:tank .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#teamBlue
+moba:teamBlue rdf:type owl:NamedIndividual ,
+                       moba:PlayerStructure ,
+                       moba:Team ;
+              moba:teamComposedBy moba:noob1 ;
+              rdfs:comment "Squadra Blu"@it ;
+              rdfs:label "Blue"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#teamRed
+moba:teamRed rdf:type owl:NamedIndividual ,
+                      moba:PlayerStructure ,
+                      moba:Team ;
+             moba:teamComposedBy moba:noob2 ,
+                                 moba:proplayer1 ;
+             rdfs:comment "Squadra Red"@it ;
+             rdfs:label "Red"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#volley
+moba:volley rdf:type owl:NamedIndividual ,
+                     moba:Abilità ,
+                     moba:GameStructure ,
+                     moba:base ;
+            moba:isAnAbilityOf moba:Ashe ;
+            rdfs:comment "Ashe fires arrows in a cone for increased damage. Also applies Frost Shot."@en ;
+            rdfs:label "Volley"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#Kha'zix
+<http://www.semanticweb.org/vincenturro/moba#Kha'zix> rdf:type owl:NamedIndividual ,
+                                                               moba:Champion ,
+                                                               moba:Character ,
+                                                               moba:GameStructure ;
+                                                      moba:hasRole moba:burstDamage ;
+                                                      moba:isADamageDealer moba:burstDamage ;
+                                                      rdfs:comment "League Of Legends Champion"@en ;
+                                                      rdfs:label "Kha'zix"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba#ranger's_focus
+<http://www.semanticweb.org/vincenturro/moba#ranger's_focus> rdf:type owl:NamedIndividual ,
+                                                                      moba:Abilità ,
+                                                                      moba:GameStructure ,
+                                                                      moba:base ;
+                                                             moba:isAnAbilityOf moba:Ashe ;
+                                                             rdfs:comment "Ashe builds up Focus by attacking. At maximum Focus, Ashe can cast Ranger's Focus to consume all stacks of Focus, temporarily increasing her Attack Speed and transforming her basic attack into a powerful flurry attack for the duration."@en ;
+                                                             rdfs:label "Ranger's_Focus"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba/Control_Ward
+<http://www.semanticweb.org/vincenturro/moba/Control_Ward> rdf:type owl:NamedIndividual ;
+                                                           rdfs:comment "Strumento di visione. Non possiede limiti di tempo ma è possibile piazzarne solo uno per giocatore, piazzato un'altra control ward la precedente verrà distrutta. è visibile e distruttibile dalla squadra avversaria"@it ;
+                                                           rdfs:label "Control_Ward"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba/Farsight_Alteration
+<http://www.semanticweb.org/vincenturro/moba/Farsight_Alteration> rdf:type owl:NamedIndividual ;
+                                                                  rdfs:comment "Strumento di visione. Fornisce una visione ridotta ma si può piazzare da lontano"@it ;
+                                                                  rdfs:label "Farsight_Alteration"@en .
+
+
+###  http://www.semanticweb.org/vincenturro/moba/Stealth_Ward
+<http://www.semanticweb.org/vincenturro/moba/Stealth_Ward> rdf:type owl:NamedIndividual ;
+                                                           rdfs:comment "Strumento di visione. La squadra nemica, a meno che utilizzino strumenti appositi, non vedono sono in grado di vedere e distruggere il lume. Ha una durata massimo di tempo e il numero di lumi piazzabili è limitato."@it ;
+                                                           rdfs:label "Stealth_Ward"@en .
+
+
+###  http://www.wikidata.org/entity/Q18608567
+<http://www.wikidata.org/entity/Q18608567> rdf:type owl:NamedIndividual ,
+                                                    moba:Object ,
+                                                    moba:Player ,
+                                                    moba:PlayerStructure ;
+                                           moba:chooseMatch moba:QuarterFinal2021_G2_Esports_vs_Fnatic ;
+                                           moba:hasTeammate <http://www.wikidata.org/entity/Q63418190> ;
+                                           moba:isInTheTeam moba:G2_Esports ;
+                                           moba:preferredChampion moba:Ashe ;
+                                           rdfs:comment "League Of Legends Player"@en ;
+                                           rdfs:label "Rekkles"@en .
+
+
+###  http://www.wikidata.org/entity/Q60734644
+<http://www.wikidata.org/entity/Q60734644> rdf:type owl:NamedIndividual ,
+                                                    moba:Object ,
+                                                    moba:Player ,
+                                                    moba:PlayerStructure ;
+                                           moba:hasTeammate <http://www.wikidata.org/entity/Q63418190> ;
+                                           moba:isInTheTeam moba:G2_Esports ;
+                                           moba:preferredChampion moba:Aphelios ;
+                                           rdfs:comment "League Of Legends Player"@en ;
+                                           rdfs:label "Caps"@en .
+
+
+###  http://www.wikidata.org/entity/Q63418190
+<http://www.wikidata.org/entity/Q63418190> rdf:type owl:NamedIndividual ,
+                                                    moba:Object ,
+                                                    moba:Player ,
+                                                    moba:PlayerStructure ;
+                                           moba:hasTeammate <http://www.wikidata.org/entity/Q18608567> ,
+                                                            <http://www.wikidata.org/entity/Q60734644> ;
+                                           moba:isInTheTeam moba:G2_Esports ;
+                                           moba:preferredChampion <http://www.semanticweb.org/vincenturro/moba#Kha'zix> ;
+                                           rdfs:comment "League Of Legends Player"@en ;
+                                           rdfs:label "Jankos"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+moba:bruiser rdfs:comment "Tipologia di Ruolo. Combattenti con un livello discreto sia di vita sia di attacco."@it ;
+             rdfs:label "Bruiser"@en .
+
+
+moba:healer rdfs:label "Healer"@en ;
+            rdfs:comment "Tipologia di ruolo, questi Champion possiedono abilità curative a supporto della squadra."@it .
+
+
+moba:support rdfs:comment "Tipologia di ruolo, questi Champion sono di supporto alla squadra, possono esserlo sia in fase di difesa che di attaco."@it ;
+             rdfs:label "Support"@en .
+
+
+moba:tank rdfs:label "Tank"@en ;
+          rdfs:comment "Tipologia di ruolo, questi Champion hanno molta vita e/o difesa, peccano di danno fisico/magico."@it .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( moba:Aphelios
+                        moba:Ashe
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( moba:noob1
+                        moba:noob2
+                        moba:proplayer1
+                        moba:proplayer2
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( moba:teamBlue
+                        moba:teamRed
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

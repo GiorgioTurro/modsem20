@@ -1,0 +1,19 @@
+[PrefixDeclaration]
+:		http://www.semanticweb.org/vincenturro/moba#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace
+xsd:		http://www.w3.org/2001/XMLSchema#
+moba:		http://www.semanticweb.org/vincenturro/moba#
+obda:		https://w3id.org/obda/vocabulary#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+vann:		http://purl.org/vocab/vann/
+terms:		http://purl.org/dc/terms/
+untitled-ontology-5:	http://www.semanticweb.org/stevi/ontologies/2021/2/untitled-ontology-5#
+
+[MappingDeclaration] @collection [[
+mappingId	MAPID-66d459eff4f64289b24673b301902ed4
+target		:{champ_name} a :Champion ; rdfs:label :rdfs:label{champ_name} ; rdfs:comment {champ_comment} . 
+source		select * from modsem_schema.modsem_table
+]]
+
